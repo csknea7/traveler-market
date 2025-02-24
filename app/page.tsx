@@ -35,7 +35,6 @@ const initialTours = [
 ];
 
 export default function Home() {
-  const [tours, setTours] = useState(initialTours);
   const [filteredTours, setFilteredTours] = useState(initialTours);
 
   const handleSearch = (filters) => {
