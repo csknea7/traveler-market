@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import TourCard from '../components/TourCard';
 
-// Tour'ların başlangıç verileri
 const initialTours = [
   {
     id: 1,
@@ -26,7 +25,7 @@ const initialTours = [
     price: 15000,
     location: 'Africa',
     theme: 'Safari',
-    activity: 'Elephantcare',
+    activity:'Elephantcare',
     startTime: 600, // 10:00 (dakika cinsinden)
     groupSize: 15,
     image: '/images/safari.jpg',
@@ -35,20 +34,11 @@ const initialTours = [
   // Diğer tur kartları...
 ];
 
-// filters objesinin tipi
-interface Filters {
-  Location: string;
-  Theme: string;
-  Activity: string;
-  Price: number;
-  StartTime: number;
-  GroupSize: number;
-}
-
 export default function Home() {
+  const [tours, setTours] = useState(initialTours);
   const [filteredTours, setFilteredTours] = useState(initialTours);
 
-  const handleSearch = (filters: Filters) => {
+  const handleSearch = (filters) => {
     const filtered = initialTours.filter((tour) => {
       return (
         (filters.Location === '' || tour.location.toLowerCase().includes(filters.Location.toLowerCase())) &&
